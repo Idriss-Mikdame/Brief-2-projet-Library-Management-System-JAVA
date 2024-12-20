@@ -12,6 +12,7 @@ public class Main {
             System.out.println("--GESTION DE LIVERS--");
             System.out.println("1-Ajouter UN liver");
             System.out.println("2-Afficher les livres");
+            System.out.println("3-Supprimer un livre");
             System.out.println("5-QUITER");
             System.out.print("votre choix : ");
             choix = input.nextInt();
@@ -21,6 +22,9 @@ public class Main {
                     break;
                 case 2:
                     Aff();
+                    break;
+                case 3:
+                    Supprimer();
                     break;
 
                 case 5:
@@ -54,6 +58,20 @@ public class Main {
                 System.out.println("la disponibilte est  : "+stock.get(i).dispo);
                 System.out.println("---------------------------------------------");
             }
+        }
+    }
+    public static void Supprimer() {
+        System.out.print("Entrez l'ISBN du livre à supprimer : ");
+        String isbn = input.next();
+        boolean supprimer = false;
+        for (int i = 0; i < stock.size(); i++) {
+            if (stock.get(i).isbn.equals(isbn)) {
+                stock.remove(i);
+                supprimer = true;
+                break;
+            }}
+        if (supprimer  == false ){
+            System.out.println("Aucun livre trouvé avec cet ISBN :(");
         }
     }
 
