@@ -11,12 +11,16 @@ public class Main {
 
             System.out.println("--GESTION DE LIVERS--");
             System.out.println("1-Ajouter UN liver");
+            System.out.println("2-Afficher les livres");
             System.out.println("5-QUITER");
             System.out.print("votre choix : ");
             choix = input.nextInt();
             switch ( choix){
                 case 1:
                     Add();
+                    break;
+                case 2:
+                    Aff();
                     break;
 
                 case 5:
@@ -39,6 +43,18 @@ public class Main {
         boolean dispo = input.nextBoolean();
         stock.add(new Book(titre,auteur,isbn,dispo));
     }
-
+    public static void Aff(){
+        if (stock.isEmpty()){
+            System.out.println("aucun liver :(");
+        }else {
+            for (int i = 0; i<stock.size();i++){
+                System.out.println("Titre de liver est   : "+stock.get(i).titre);
+                System.out.println("Auteur de liver est  : "+stock.get(i).auteur);
+                System.out.println("L'ISBN de liver est  : "+stock.get(i).isbn);
+                System.out.println("la disponibilte est  : "+stock.get(i).dispo);
+                System.out.println("---------------------------------------------");
+            }
+        }
+    }
 
 }
