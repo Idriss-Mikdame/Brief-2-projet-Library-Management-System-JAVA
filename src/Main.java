@@ -13,6 +13,7 @@ public class Main {
             System.out.println("1-Ajouter UN liver");
             System.out.println("2-Afficher les livres");
             System.out.println("3-Supprimer un livre");
+            System.out.println("4-Rechercher un livre");
             System.out.println("5-QUITER");
             System.out.print("votre choix : ");
             choix = input.nextInt();
@@ -25,6 +26,9 @@ public class Main {
                     break;
                 case 3:
                     Supprimer();
+                    break;
+                case 4:
+                    Rechercher();
                     break;
 
                 case 5:
@@ -72,6 +76,24 @@ public class Main {
             }}
         if (supprimer  == false ){
             System.out.println("Aucun livre trouvé avec cet ISBN :(");
+        }
+    }
+    public static void Rechercher(){
+        System.out.print("Entrez l'ISBN du livre à rechercher : ");
+        String isbn = input.next();
+        boolean rechercher = false;
+        for (int i = 0 ;i<stock.size();i++){
+            if (stock.get(i).isbn.equals(isbn)){
+                System.out.println("Titre de liver est   : "+stock.get(i).titre);
+                System.out.println("Auteur de liver est  : "+stock.get(i).auteur);
+                System.out.println("L'ISBN de liver est  : "+stock.get(i).isbn);
+                System.out.println("la disponibilte est  : "+stock.get(i).dispo);
+                rechercher = true;
+                break;
+            }
+        }
+        if (rechercher==false){
+            System.out.println("aucune liver :(");
         }
     }
 
